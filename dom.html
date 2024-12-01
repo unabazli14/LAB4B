@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enhanced jQuery DOM Operations</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 20px;
+        }
+
+        #myElement {
+            font-size: 20px;
+            color: #333;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .myStyle {
+            background-color: coral;
+            color: white;
+            padding: 20px;
+            margin-top: 10px;
+            font-weight: bold;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        #myButton {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #myButton:hover {
+            background-color: #0056b3;
+        }
+
+        #alertBox {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #007bff;
+            background-color: #e7f3ff;
+            color: #0056b3;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="myElement">Click the button to modify this text.</div>
+
+    <div id="myDIV">
+        <p>I am inside myDIV.</p>
+    </div>
+<br>
+    <button id="myButton">Click Me</button>
+
+    <div id="alertBox">You clicked the button! 🎉</div>
+
+    <script>
+        $(document).ready(function () {
+            // a. Modify the text content with animation
+            $("#myButton").click(function () {
+                $("#myElement")
+                    .hide(400)
+                    .text("Wow! The text has been modified!")
+                    .fadeIn(800);
+            });
+
+            // b. Add a class with a delay and highlight animation
+            $("#myButton").click(function () {
+                setTimeout(function () {
+                    $("#myDIV").addClass("myStyle").hide().fadeIn(1000);
+                }, 500);
+            });
+
+            // c. Add a click event listener to show an alert box with a slide effect
+            $("#myButton").click(function () {
+                alert("Button clicked!");
+            });
+        });
+    </script>
+</body>
+</html>
